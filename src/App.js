@@ -28,7 +28,9 @@ const App = () => {
   };
 
   const removeTodo = (id) => {
-    dispatch({ type: "REMOVE_TODO", payload: id });
+    if (window.confirm("Удалить этот дело?")) {
+      dispatch({ type: "REMOVE_TODO", payload: id });
+    }
   };
 
   return (
