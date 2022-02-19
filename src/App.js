@@ -21,8 +21,8 @@ const App = () => {
     };
 
     const addTodo = () => {
-        if (todo.text !== "") {
-            dispatch({ type: "ADD_TODO", payload: { todo: todo } });
+        if (todo.text) {
+            dispatch({ type: "ADD_TODO", payload:  { todo } });
             setTodo({ id: "", text: "", completed: false });
         }
     };

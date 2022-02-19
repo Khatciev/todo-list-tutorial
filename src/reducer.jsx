@@ -3,8 +3,8 @@ export const TodosReducer = (state, action) => {
         return [
             ...state,
             {
-                text: action.payload.todo.text,
-                completed: action.payload.todo.completed,
+                text: action.payload.text,
+                completed: action.payload.completed,
             },
         ];
     }
