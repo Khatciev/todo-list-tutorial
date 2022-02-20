@@ -11,9 +11,9 @@ const App = () => {
   const [todo, setTodo] = useState({ id: 0, text: "", completed: false });
 
   const handleChange = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const name = e.target.name;
     setTodo({
       ...todo,
       [name]: value,
@@ -21,7 +21,7 @@ const App = () => {
   };
 
   const addTodo = () => {
-    if (todo.text) {
+    if (todo.text.trim()) {
       dispatch({ type: "ADD_TODO", payload: todo });
       setTodo({ id: 0, text: "", completed: false });
     }
