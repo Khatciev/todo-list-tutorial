@@ -32,7 +32,13 @@ const App = () => {
       dispatch({ type: "REMOVE_TODO", payload: id });
     }
   };
-
+  const clearAll = () => {
+    dispatch({ type: "CLEAR_TODOS", payload: {id: "", text: "", completed: ""} });
+    console.log(state);
+  };
+const onClickCompleted = () => {
+  dispatch({ type: "COMPLETED_TODOS"});
+}
   return (
     <div>
       <Paper className="wrapper">
@@ -48,20 +54,20 @@ const App = () => {
         </Tabs>
         <Divider />
         <List>
-          {state.map((el) => (
+          {state?.map((el) => (
             <Item
-              key={el.id}
-              id={el.id}
-              text={el.text}
+              key={el?.id}
+              id={el?.id}
+              text={el?.text}
               removeTodo={removeTodo}
-              completed={el.completed}
+              completed={el?.completed}
             />
           ))}
         </List>
         <Divider />
         <div className="check-buttons">
-          <Button>Отметить всё</Button>
-          <Button>Очистить</Button>
+          <Button onClick={onClickCompleted}>Отметить всё</Button>
+          <Button onClick={clearAll}>Очистить</Button>
         </div>
       </Paper>
     </div>
