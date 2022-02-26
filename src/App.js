@@ -33,7 +33,7 @@ const App = () => {
     }
   };
   const clearAll = () => {
-    dispatch({ type: "CLEAR_TODOS", payload: {id: "", text: "", completed: ""} });
+    dispatch({ type: "CLEAR_TODOS"});
     console.log(state);
   };
 const onClickCompleted = () => {
